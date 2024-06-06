@@ -1,0 +1,155 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvToolbarBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내 냉장고"
+            android:fontFamily="@font/fontstyle"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageButton
+        android:id="@+id/btnAddFood"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/add_food"
+        android:contentDescription="Add Food"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside" />
+
+
+
+    <RelativeLayout
+        android:id="@+id/searchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/btnAddFood"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/editTextSearch"
+            android:layout_width="227dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="108dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/search_bar_bg"
+            android:hint="식품 이름 검색"
+            android:fontFamily="@font/fontstyle"
+            android:inputType="text"
+            android:padding="8dp" />
+
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="52dp"
+            android:layout_height="42dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="25dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_search" />
+
+        <Button
+            android:id="@+id/sortButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginBottom="25dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:text="정렬 ▲"
+            android:fontFamily="@font/fontstyle"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/sortOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sortButton"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:padding="8dp"
+        tools:ignore="NotSibling">
+
+        <Button
+            android:id="@+id/sortByRegistration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="등록순"
+            android:background="?attr/selectableItemBackground"
+            android:textColor="@android:color/black"
+            android:padding="8dp"/>
+
+        <Button
+            android:id="@+id/sortByName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="이름순"
+            android:background="?attr/selectableItemBackground"
+            android:textColor="@android:color/black"
+            android:padding="8dp"/>
+
+        <Button
+            android:id="@+id/sortByExpiryDateAsc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="소비기한 짧은 순"
+            android:background="?attr/selectableItemBackground"
+            android:textColor="@android:color/black"
+            android:padding="8dp"/>
+
+        <Button
+            android:id="@+id/sortByExpiryDateDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="소비기한 긴 순"
+            android:background="?attr/selectableItemBackground"
+            android:textColor="@android:color/black"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+
+    <GridView
+        android:id="@+id/gridViewFoods"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/searchLayout"
+        android:layout_marginTop="16dp"
+        android:columnWidth="100dp"
+        android:gravity="center"
+        android:numColumns="3"
+        android:stretchMode="columnWidth" />
+
+</RelativeLayout>

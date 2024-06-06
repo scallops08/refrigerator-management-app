@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".AddFoodActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvToolbarBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&lt; 메인화면"
+                android:fontFamily="@font/fontstyle"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars"
+            android:src="@drawable/default_food_image" />
+
+        <Button
+            android:id="@+id/btnDetectFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="과일 및 채소 자동 작성"
+            android:fontFamily="@font/fontstyle"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="13dp"/>
+
+        <EditText
+            android:id="@+id/etFoodName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="식품 이름"
+
+            android:fontFamily="@font/fontstyle"/>
+
+        <EditText
+            android:id="@+id/etExpiryDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="소비기한 (YYYY-MM-DD)"
+            android:fontFamily="@font/fontstyle"
+            android:focusable="false"
+            android:clickable="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="추가 알림 설정: 소비기한 "
+                android:hint="0"
+                android:fontFamily="@font/fontstyle"
+                android:textSize="16sp"
+                android:gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/etAlarmDate"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일 전"
+                android:fontFamily="@font/fontstyle"
+                android:textSize="16sp"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/etQuantityLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="수량: "
+                android:fontFamily="@font/fontstyle"
+                android:textSize="16sp"
+                android:paddingRight="8dp"
+                android:layout_gravity="center_vertical"/>
+
+            <Button
+                android:id="@+id/btnDecreaseQuantity"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="37sp"
+                android:textColor="@android:color/black"
+                android:background="@android:color/transparent" />
+
+            <EditText
+                android:id="@+id/etQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="1"
+                android:fontFamily="@font/fontstyle"
+                android:textSize="20sp"
+                android:paddingHorizontal="8dp"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/btnIncreaseQuantity"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textSize="30sp"
+                android:textColor="@android:color/black"
+                android:background="@android:color/transparent"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etMemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="메모"
+            android:fontFamily="@font/fontstyle"
+            android:layout_marginTop="16dp"
+            android:inputType="textMultiLine"
+            android:lines="4"/>
+
+        <Button
+            android:id="@+id/btnRegisterFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="식품 등록"
+            android:fontFamily="@font/fontstyle"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

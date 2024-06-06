@@ -1,0 +1,222 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvToolbarBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&lt; 메인화면"
+                android:fontFamily="@font/fontstyle"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/imageViewFood"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:onClick="chooseImage"
+            android:src="@drawable/default_food_image" />
+
+        <TextView
+            android:id="@+id/tvFoodNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="식품 이름:"
+            android:fontFamily="@font/fontstyle"
+            android:textSize="16sp"
+            android:layout_below="@id/imageViewFood"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"/>
+
+        <EditText
+            android:id="@+id/etFoodName"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:inputType="text"
+            android:background="@drawable/search_bar_bg"
+            android:layout_below="@id/imageViewFood"
+            android:layout_toEndOf="@id/tvFoodNameLabel"
+            android:paddingLeft="8dp"
+            android:layout_marginTop="11dp" />
+
+        <TextView
+            android:id="@+id/tvExpiryDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="소비기한:"
+            android:fontFamily="@font/fontstyle"
+            android:textSize="16sp"
+            android:layout_below="@id/etFoodName"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"/>
+
+        <EditText
+            android:id="@+id/etExpiryDate"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/tvExpiryDateLabel"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="-30dp"
+            android:layout_toEndOf="@id/tvExpiryDateLabel"
+            android:focusable="false"
+            android:inputType="text"
+            android:paddingLeft="8dp"
+            android:background="@drawable/search_bar_bg"
+            android:fontFamily="@font/fontstyle"
+            android:onClick="showDatePickerDialog" />
+
+        <TextView
+            android:id="@+id/tvAddAlarmLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="추가 알림 설정:  "
+            android:fontFamily="@font/fontstyle"
+            android:textSize="16sp"
+            android:layout_below="@id/etExpiryDate"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"/>
+
+        <EditText
+            android:id="@+id/etAlarmDate"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/tvAddAlarmLabel"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="-31dp"
+            android:layout_toEndOf="@id/tvExpiryDateLabel"
+            android:background="@drawable/search_bar_bg"
+            android:focusable="true"
+            android:paddingLeft="8dp"
+            android:inputType="number"
+            android:fontFamily="@font/fontstyle"/>
+
+
+        <TextView
+            android:id="@+id/tvAddAlarmLabel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etExpiryDate"
+            android:layout_marginStart="190dp"
+            android:layout_marginTop="31dp"
+            android:text="일 전"
+            android:fontFamily="@font/fontstyle"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/etQuantityLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수량:"
+            android:fontFamily="@font/fontstyle"
+            android:textSize="16sp"
+            android:layout_below="@id/tvAddAlarmLabel"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"/>
+
+        <Button
+            android:id="@+id/btnDecreaseQuantity"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:fontFamily="@font/fontstyle"
+            android:textSize="35sp"
+            android:textColor="@android:color/black"
+            android:background="@android:color/transparent"
+            android:layout_below="@id/tvAddAlarmLabel"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/etQuantityLabel"/>
+
+        <EditText
+            android:id="@+id/tvQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+
+            android:fontFamily="@font/fontstyle"
+            android:textSize="20sp"
+            android:layout_below="@id/tvAddAlarmLabel"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@id/btnDecreaseQuantity"/>
+
+        <Button
+            android:id="@+id/btnIncreaseQuantity"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:fontFamily="@font/fontstyle"
+            android:textColor="@android:color/black"
+            android:background="@android:color/transparent"
+            android:textSize="30sp"
+            android:layout_below="@id/tvAddAlarmLabel"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/tvQuantity"/>
+
+        <TextView
+            android:id="@+id/tvMemoLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메모"
+            android:fontFamily="@font/fontstyle"
+            android:textSize="16sp"
+            android:layout_below="@id/etQuantityLabel"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"/>
+
+        <EditText
+            android:id="@+id/etMemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:lines="4"
+            android:fontFamily="@font/fontstyle"
+            android:layout_below="@id/tvMemoLabel"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:paddingLeft="8dp"
+            android:background="@drawable/search_bar_bg"/>
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etMemo"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="23dp"
+            android:text="수정"
+            android:fontFamily="@font/fontstyle"/>
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etMemo"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="112dp"
+            android:text="삭제"
+            android:fontFamily="@font/fontstyle"/>
+
+    </RelativeLayout>
+</ScrollView>
